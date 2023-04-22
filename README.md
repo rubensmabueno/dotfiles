@@ -1,7 +1,3 @@
-# dotfiles
-
-ln -s $(PWD)/.zshrc /home/rubens/.zshrc
-
 # Dotfile Repository
 This is my personal dotfile repository that contains configuration files for various applications such as `zsh`, `i3`, and `rofi`.
 
