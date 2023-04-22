@@ -10,14 +10,30 @@ To install these dotfiles on a new machine, follow these steps:
 git clone https://github.com/rubensmabueno/dotfiles.git
 ```
 
-2. Install zsh and oh-my-zsh on your system. You can follow the instructions on the official oh-my-zsh GitHub repository for installation instructions.
+2. Install zsh and oh-my-zsh on your system. 
+```bash
+# Install zsh and tmux
+sudo pacman -S zsh tmux
+
+# Set zsh as your default shell
+chsh -s $(which zsh)
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Install the tmux plugin manager (tpm)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 3. Create symbolic links from the repository to your home directory using the following commands:
 
 ```bash
+mkdir -p ~/.config/tmux/
+
 ln -s $(pwd)/.zshrc ~/.zshrc
 ln -s $(pwd)/i3 ~/.config/i3
 ln -s $(pwd)/rofi ~/.config/rofi
+ln -s $(pwd)/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ```
 
 This will create symbolic links from the dotfiles in the repository to the correct directories in your home directory.

@@ -72,9 +72,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-	tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -105,4 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[[ $TERM != "screen" ]] && tmux
+if [[ ! $TERM =~ screen ]] && [[ ! $TERM =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
